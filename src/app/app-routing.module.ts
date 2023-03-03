@@ -1,14 +1,13 @@
 import { Routes } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
-import { AjouterEleveComponent} from "./tms/ajouter-eleve/ajouter-eleve.component";
 
 export const Approutes: Routes = [
   {
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/tms/login', pathMatch: 'full' },
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
@@ -22,9 +21,5 @@ export const Approutes: Routes = [
         loadChildren: () => import('./tms/tms.module').then(m => m.ComponentsModule)
       }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: '/starter'
   }
 ];

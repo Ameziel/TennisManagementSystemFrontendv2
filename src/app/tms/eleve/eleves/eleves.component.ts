@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ElevesService} from "../../services/eleves.service";
+import {ElevesService} from "../../../services/eleves.service";
 import {Observable} from "rxjs";
-import {Eleve} from "../../models/eleve.model";
+import {Eleve} from "../../../models/eleve.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-eleves',
@@ -16,7 +17,7 @@ export class ElevesComponent implements OnInit {
   errorMessage : string | undefined;
   searchformGroup! : FormGroup;
 
-  constructor(private eleveService: ElevesService, private formBuilder : FormBuilder) { }
+  constructor(private eleveService: ElevesService, private formBuilder : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
     this.searchformGroup = this.formBuilder.group(
@@ -29,6 +30,22 @@ export class ElevesComponent implements OnInit {
 
   handleSearchEleves() {
     let keywordInput = this.searchformGroup?.value.keyword;
-    this.eleves = this.eleveService.searchEleves(keywordInput);
+    this.eleves = this.eleveService.searchElevesByName(keywordInput);
+  }
+
+  handleSuppressionEleve(eleve: Eleve) {
+    let confirmation = confirm("Voulez vous vraiment supprimer cet eleve ?");
+    if(!confirmation) return;
+    this.eleveService.deleteEleve(eleve.id).subscribe(
+      {
+        next : (resp : Object) => {
+          this.handleSearchEleves();
+        }
+      }
+    )
+  }
+
+  handleEditEleve(eleve: Eleve) {
+    this.router.navigateByUrl("/tms/eleve-details/" + eleve.id);
   }
 }

@@ -2,8 +2,8 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Project Listing</h4>
-        <h5 class="card-subtitle text-muted">Overview of the projects</h5>
+        <h4 class="card-title">Liste des élèves</h4>
+        <h5 class="card-subtitle text-muted">sous titre</h5>
         <form [formGroup]=searchformGroup (ngSubmit)="handleSearchEleves()" class="d-flex">
           <input class="form-control me-2" type="search" formControlName="keyword" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Rechercher <i class="bi bi-search"></i></button>
@@ -36,8 +36,10 @@
               <th class="text-dark font-medium fs-4">Id + mail</th>
               <th class="text-dark font-medium fs-4">Prenom</th>
               <th class="text-dark font-medium fs-4">Nom</th>
+              <th class="text-dark font-medium fs-4">Genre</th>
               <th class="text-dark font-medium fs-4">telephone</th>
               <th class="text-dark font-medium fs-4">dateDeNaissance</th>
+              <th class="text-dark font-medium fs-4">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -50,16 +52,20 @@
                   </div>
                 </div>
               </td>
-              <td class="fs-4">{{eleve.prenom}}</td>
+              <td> {{eleve.prenom}}</td>
+              <td> {{eleve.nom}} </td>
+              <td> {{eleve.genre}} </td>
+              <td> {{eleve.telephone}}</td>
+              <td> {{eleve.dateDeNaissance | date:'longDate'}} </td>
               <td>
-                {{eleve.nom}}
+                <button (click)="handleEditEleve(eleve)" class="btn btn-secondary">
+                  <i class="bi bi-person-vcard"></i>
+                </button>
               </td>
-
               <td>
-                <h5 class="mb-0 fw-normal">{{eleve.telephone}}</h5>
-              </td>
-              <td>
-                <h5 class="mb-0 fw-normal">{{eleve.dateDeNaissance | date:'dd/mm/yyyy'}}</h5>
+                <button (click)="handleSuppressionEleve(eleve)" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
               </td>
             </tr>
             </tbody>
