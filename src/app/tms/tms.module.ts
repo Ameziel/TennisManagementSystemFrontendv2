@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsRoutes } from './tms.routing';
 import {ElevesComponent} from "./eleve/eleves/eleves.component";
-import {FormulesComponent} from "./formules/formules.component";
+import {FormulesComponent} from "./formule/formules/formules.component";
 import {GroupesComponent} from "./groupes/groupes.component";
 import {MoniteursComponent} from "./moniteurs/moniteurs.component";
 import { PrestationsComponent } from './prestations/prestations.component';
@@ -14,6 +14,8 @@ import { AjouterEleveComponent } from './eleve/ajouter-eleve/ajouter-eleve.compo
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 import { EleveDetailsComponent } from './eleve/eleve-details/eleve-details.component';
 import { LoginComponent } from './login/login.component';
+import { AjouterFormuleComponent } from './formule/ajouter-formule/ajouter-formule.component';
+import { FormuleDetailsComponent } from './formule/formule-details/formule-details.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { LoginComponent } from './login/login.component';
     AjouterEleveComponent,
     InscriptionsComponent,
     EleveDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    AjouterFormuleComponent,
+    FormuleDetailsComponent
   ]
 })
 export class ComponentsModule { }
