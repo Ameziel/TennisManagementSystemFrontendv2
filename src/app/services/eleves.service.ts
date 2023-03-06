@@ -24,7 +24,7 @@ export class ElevesService {
   }
 
   public updateEleve(eleve : Eleve) : Observable<Eleve> {
-    return this.http.post<Eleve>( environment.backendHost + "/eleves", eleve);
+    return this.http.put<Eleve>( environment.backendHost + "/eleves/" + eleve.id, eleve);
   }
 
   public saveEleve(eleve : Eleve):Observable<Eleve> {
@@ -34,23 +34,5 @@ export class ElevesService {
   public deleteEleve(id : string){
      return this.http.delete( environment.backendHost + "/eleves/" + id);
   }
-
-
-
-  // public getClient(): Observable<Client[]> {
-  //   return this.httpClient.get<Client[]>(this.serviceUrlGetAll);
-  // }
-  //
-  // public addClient(client: Client): Observable<Client> {
-  //   return this.httpClient.post<Client>(this.serviceUrlClient, client);
-  // }
-  //
-  // public updateClient(client: Client): Observable<Client> {
-  //   return this.httpClient.put<Client>(this.serviceUrlClient, client);
-  // }
-  //
-  // public deleteClient(clientID: number): Observable<void> {
-  //   return this.httpClient.delete<void>(this.serviceUrlClient + `/${clientID}`);
-  // }
 }
 
