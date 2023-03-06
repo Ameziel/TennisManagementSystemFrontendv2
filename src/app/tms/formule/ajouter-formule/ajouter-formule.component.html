@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="card col-md-6 offset-3">
+    <div class="card-header">Nouvel Eleve</div>
+    <div class="card-body">
+      <form [formGroup]="ajoutFormuleGroup" (ngSubmit)="handleSaveFormule()">
+
+        <div class="mb-3">
+          <label class="form-label">Libelle :</label>
+          <input type="text" formControlName="Libelle" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutFormuleGroup.controls['Libelle'].touched
+                && ajoutFormuleGroup.controls['Libelle'].errors
+                && ajoutFormuleGroup.controls['Libelle'].errors!['required']">
+            Le libellé est requis
+          </span>
+        </div>
+
+
+        <div class="mb-3">
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="typeBalle" name="typeBalle" id="rouge" value="ROUGE">
+            <label class="form-check-label" for="rouge"> ROUGE </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="typeBalle" name="typeBalle" id="orange" value="ORANGE">
+            <label class="form-check-label" for="orange"> ORANGE </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="typeBalle" name="typeBalle" id="verte" value="VERTE">
+            <label class="form-check-label" for="verte"> VERTE </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="typeBalle" name="typeBalle" id="jaune" value="JAUE">
+            <label class="form-check-label" for="jaune"> JAUNE </label>
+          </div>
+        </div>
+
+
+
+        <div class="mb-3">
+          <label class="form-label">Prenom :</label>
+          <input type="text" formControlName="prenom" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutFormuleGroup.controls['prenom'].touched
+                && ajoutFormuleGroup.controls['prenom'].errors
+                && ajoutFormuleGroup.controls['prenom'].errors!['required']">
+            Le prénom est requis
+          </span>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label">Telephone :</label>
+          <input type="text" formControlName="telephone" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email :</label>
+          <input type="email" formControlName="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date de naissance :</label>
+          <input type="date" formControlName="dateDeNaissance" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutFormuleGroup.controls['dateDeNaissance'].touched
+                && ajoutFormuleGroup.controls['dateDeNaissance'].errors
+                && ajoutFormuleGroup.controls['dateDeNaissance'].errors!['required']">
+            La date de naissance est requise
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Details :</label>
+          <input type="text" formControlName="details" class="form-control">
+        </div>
+        <button [disabled]="!ajoutFormuleGroup.valid" class="btn btn-info"> Sauvegarder</button>
+      </form>
+    </div>
+  </div>
+</div>
