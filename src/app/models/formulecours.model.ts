@@ -7,6 +7,8 @@ export interface Formulecours {
   dureeSeance : string;
   tarif: number;
   annee : number;
+  dateDebut : Date;
+  dateFin : Date;
   periode : string;
   typeBalle: string;
 }
