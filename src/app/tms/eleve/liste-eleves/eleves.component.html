@@ -34,7 +34,6 @@
           <table class="table align-middle text-nowrap">
             <thead>
             <tr>
-              <th class="text-dark font-medium fs-4">Id + mail</th>
               <th class="text-dark font-medium fs-4">Prenom</th>
               <th class="text-dark font-medium fs-4">Nom</th>
               <th class="text-dark font-medium fs-4">Genre</th>
@@ -45,14 +44,6 @@
             </thead>
             <tbody>
             <tr *ngFor='let eleve of eleves | async'>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="ms-3">
-                    <h5 class="mb-0 font-medium">{{eleve.id}}</h5>
-                    <span class="text-muted">{{eleve.email}}</span>
-                  </div>
-                </div>
-              </td>
               <td> {{eleve.prenom}}</td>
               <td> {{eleve.nom}} </td>
               <td> {{eleve.genre}} </td>

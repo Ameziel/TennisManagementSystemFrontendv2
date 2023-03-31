@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {ElevesService} from "../../../services/eleves.service";
 import {Observable} from "rxjs";
 import {Eleve} from "../../../models/eleve.model";
