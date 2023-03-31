@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {FormulecoursService} from "../../../services/formulecours.service";
+import {Formulecours} from "../../../models/formulecours.model";
 
 @Component({
   selector: 'app-ajouter-formule',
@@ -24,6 +25,8 @@ export class AjouterFormuleComponent implements OnInit {
         dureeSeance: this.formBuilder.control(null, [Validators.required]),
         tarif: this.formBuilder.control(null, [Validators.required]),
         annee: this.formBuilder.control(null, [Validators.required]),
+        dateDebut: this.formBuilder.control(null, [Validators.required]),
+        dateFin: this.formBuilder.control(null, [Validators.required]),
         periode: this.formBuilder.control(null, [Validators.required]),
         typeBalle: this.formBuilder.control([Validators.required]),
       })
@@ -31,6 +34,17 @@ export class AjouterFormuleComponent implements OnInit {
 
 
   handleSaveFormule() {
-
+    let formule:Formulecours = this.ajoutFormuleGroup.value;
+    this.formulecoursService.saveFormuleCours(formule).subscribe(
+      {
+        next : data => {
+          alert("La Formule de cours a bien été ajouté à l'application !");
+          this.ajoutFormuleGroup.reset();
+        },
+        error : err => {
+          alert("Une erreur s'est produite pendant l'enregistrement");
+        }
+      }
+    );
   }
 }
