@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Eleve} from "../models/eleve.model";
 import {environment} from "../../environments/environment";
 import {Formulecours} from "../models/formulecours.model";
 

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title d-flex justify-content-center">Liste des moniteurs</h1>
+        <h2 class="card-subtitle text-muted">Filtres disponibles : </h2>
+
+        <form [formGroup]=searchformGroup (ngSubmit)="handleSearchMoniteur()" class="d-flex">
+          <input class="form-control me-2" type="search" formControlName="keyword" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Rechercher <i class="bi bi-search"></i></button>
+        </form>
+        <div><p>{{searchformGroup.value | json}}</p></div>
+        <div *ngIf="errorMessage">
+          <ngb-alert
+            class="
+            bg-transparent
+            border-danger border
+            text-danger
+            d-flex
+            align-items-center
+            fs-5
+          "
+          >
+            <i
+              name="Info"
+              class="feather-sm flex-shrink-0 d-flex me-2"
+            ></i>
+            Les données n'ont pas pu être chargées... Verifiez votre connexion
+          </ngb-alert>
+        </div>
+
+        <div class="table-responsive" *ngIf="moniteurs">
+
+          <table class="table align-middle text-nowrap">
+            <thead>
+            <tr>
+              <th class="text-dark font-medium fs-4">Prenom</th>
+              <th class="text-dark font-medium fs-4">Nom</th>
+              <th class="text-dark font-medium fs-4">Adresse</th>
+              <th class="text-dark font-medium fs-4">Email</th>
+              <th class="text-dark font-medium fs-4">Telephone</th>
+              <th class="text-dark font-medium fs-4">Qualification</th>
+              <th class="text-dark font-medium fs-4">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor='let moniteur of moniteurs | async'>
+              <td> {{moniteur.prenom}} </td>
+              <td> {{moniteur.nom}}</td>
+              <td> {{moniteur.adresse}}</td>
+              <td> {{moniteur.email}}</td>
+              <td> {{moniteur.telephone}}</td>
+              <td> {{moniteur.qualification}}</td>
+              <td>
+                <button (click)="handleSearchMoniteur()" class="btn btn-secondary">
+                  <i class="bi bi-person-vcard"></i>
+                </button>
+              </td>
+              <td>
+                <button (click)="handleSuppressionMoniteur(moniteur)" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>

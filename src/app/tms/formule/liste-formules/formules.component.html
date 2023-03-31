@@ -1,0 +1,33 @@
+<div *ngFor='let formule of formules | async' class="row row-cols-1 row-cols-md-2 g-4"
+     xmlns="http://www.w3.org/1999/html">
+  <div class="col">
+    <div class="card">
+
+      <div *ngIf="formule.typeBalle ==='ROUGE' ">
+        <img src="/assets/images/tennis_balle_rouge.jpg" alt="..." height="64px" width="64px">
+      </div>
+      <div *ngIf="formule.typeBalle ==='ORANGE' ">
+        <img src="/assets/images/tennis_balle_orange.jpg" alt="..." height="64px" width="64px">
+      </div>
+      <div *ngIf="formule.typeBalle ==='VERTE' ">
+        <img src="/assets/images/tennis_balle_verte.jpg" alt="..." height="64px" width="64px">
+      </div>
+      <div *ngIf="formule.typeBalle ==='JAUNE' ">
+        <img src="/assets/images/tennis_balle_jaune.jpg" alt="..." height="64px" width="64px">
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-title d-flex justify-content-center">{{formule.libelle}}</h2>
+        <h3 class="d-flex justify-content-end"><i class="bi bi-calendar3"></i>Date de debut : {{formule.dateDebut}} <br></h3>
+          <h3 class="d-flex justify-content-end"><i class="bi bi-calendar3"></i>Date de fin : {{formule.dateFin}}</h3>
+        <h3 class="d-flex justify-content-center">
+          Tarif : {{formule.tarif}}€
+        </h3>
+        <p>Nombre de séances au total : {{formule.nombreSeanceTotal}}</p>
+        <p>Nombre de séance semaines : {{formule.nombreSeanceHebdomadaire}}  de {{formule.dureeSeance}}</p>
+      </div>
+    </div>
+  </div>
+
+
+<!--  ROUGE, ORANGE, VERTE, JAUNE-->
