@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Eleve} from "../../../models/eleve.model";
 import {ElevesService} from "../../../services/eleves.service";
@@ -22,8 +22,8 @@ export class AjouterEleveComponent implements OnInit {
         prenom: this.formBuilder.control(null, [Validators.required]),
         nom: this.formBuilder.control(null, [Validators.required]),
         genre: this.formBuilder.control(null),
-        email: this.formBuilder.control(null), //TODO CHECK Pk ça s'affiche dans la barre
-        telephone: this.formBuilder.control(null), //TODO CHECK Pk ça s'affiche dans la barre
+        email: this.formBuilder.control(null),
+        telephone: this.formBuilder.control(null),
         dateDeNaissance: this.formBuilder.control([Validators.required]),
         details: this.formBuilder.control(null),
       })

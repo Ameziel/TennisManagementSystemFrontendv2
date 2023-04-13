@@ -1,1 +1,71 @@
-<p>ajouter-moniteur works!</p>
+<div class="container">
+  <div class="card col-md-6 offset-3">
+    <div class="card-header">Nouvel Eleve</div>
+    <div class="card-body">
+      <form [formGroup]="ajoutMoniteurFormGroup" (ngSubmit)="handleSaveMoniteur()">
+
+        <div class="mb-3">
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="genre" name="genre" id="homme" value="H">
+            <label class="form-check-label" for="homme"> Homme </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" formControlName="genre" name="genre" id="femme" value="F"
+                   checked>
+            <label class="form-check-label" for="femme"> Femme </label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Nom :</label>
+          <input type="text" formControlName="nom" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutMoniteurFormGroup.controls['nom'].touched
+                && ajoutMoniteurFormGroup.controls['nom'].errors
+                && ajoutMoniteurFormGroup.controls['nom'].errors!['required']">
+            Le nom est requis
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Prenom :</label>
+          <input type="text" formControlName="prenom" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutMoniteurFormGroup.controls['prenom'].touched
+                && ajoutMoniteurFormGroup.controls['prenom'].errors
+                && ajoutMoniteurFormGroup.controls['prenom'].errors!['required']">
+            Le prénom est requis
+          </span>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label">Telephone :</label>
+          <input type="text" formControlName="telephone" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email :</label>
+          <input type="email" formControlName="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date de naissance :</label>
+          <input type="date" formControlName="dateDeNaissance" class="form-control" required>
+          <span class="text-danger"
+                *ngIf="ajoutMoniteurFormGroup.controls['dateDeNaissance'].touched
+                && ajoutMoniteurFormGroup.controls['dateDeNaissance'].errors
+                && ajoutMoniteurFormGroup.controls['dateDeNaissance'].errors!['required']">
+            La date de naissance est requise
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Details :</label>
+          <input type="text" formControlName="details" class="form-control">
+        </div>
+        <button [disabled]="!ajoutMoniteurFormGroup.valid" class="btn btn-info"> Sauvegarder</button>
+      </form>
+    </div>
+  </div>
+</div>
