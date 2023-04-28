@@ -6,13 +6,13 @@
       <form [formGroup]="ajoutFormuleGroup" (ngSubmit)="handleSaveFormule()">
         <div class="mb-3">
           <label class="form-label">Libelle :</label>
-          <input type="text" formControlName="libelle" class="form-control" required>
-          <!--          <span class="text-danger" TODO FIX the bug-->
-          <!--                *ngIf="ajoutFormuleGroup.controls['Libelle'].touched-->
-          <!--                && ajoutFormuleGroup.controls['Libelle'].errors-->
-          <!--                && ajoutFormuleGroup.controls['Libelle'].errors!['required']">-->
-          <!--            Le libellé est requis-->
-          <!--          </span>-->
+          <input type="text" formControlName="Libelle" class="form-control" required>
+<!--          <span class="text-danger" TODO FIX the bug-->
+<!--                *ngIf="ajoutFormuleGroup.controls['Libelle'].touched-->
+<!--                && ajoutFormuleGroup.controls['Libelle'].errors-->
+<!--                && ajoutFormuleGroup.controls['Libelle'].errors!['required']">-->
+<!--            Le libellé est requis-->
+<!--          </span>-->
         </div>
 
         <div class="mb-3">
@@ -39,7 +39,7 @@
           </div>
           <div class="form-check">
             <input type="radio" class="form-check-input" formControlName="typeBalle" name="typeBalle" id="jaune"
-                   value="JAUNE">
+                   value="JAUE">
             <label class="form-check-label" for="jaune"> JAUNE </label>
           </div>
         </div>
@@ -69,21 +69,21 @@
           </div>
         </div>
 
-        <!--        BUG ENTRE ICI-->
+<!--        BUG ENTRE ICI-->
         <div class="mb-3">
           <label class="form-label">Période :</label>
           <div class="form-check">
-            <input type="radio" class="form-check-input" formControlName="periode" name="periode" id="HIVER"
+            <input type="radio" class="form-check-input" formControlName="periode" name="dureeSeance" id="HIVER"
                    value="HIVER">
             <label class="form-check-label" for="HIVER"> HIVER </label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" formControlName="periode" name="periode" id="ETE"
+            <input type="radio" class="form-check-input" formControlName="periode" name="dureeSeance" id="ETE"
                    value="ETE">
             <label for="ETE"> ETE </label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" formControlName="periode" name="periode" id="ANNEE"
+            <input type="radio" class="form-check-input" formControlName="periode" name="dureeSeance" id="ANNEE"
                    value="ANNEE">
             <label class="form-check-label" for="ANNEE"> ANNEE </label>
           </div>

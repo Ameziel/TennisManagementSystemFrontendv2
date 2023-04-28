@@ -17,6 +17,15 @@ import {FormuleDetailsComponent} from './formule/formule-details/formule-details
 import {AjouterMoniteurComponent} from './moniteur/ajouter-moniteur/ajouter-moniteur.component';
 import {MoniteurDetailsComponent} from './moniteur/moniteur-details/moniteur-details.component';
 import {MoniteursComponent} from './moniteur/liste-moniteurs/moniteurs.component';
+import {
+  AjouterInscriptionformuleComponent
+} from './inscription/ajouter-inscriptionformule/ajouter-inscriptionformule.component';
+import {
+  ListeInscriptionformuleComponent
+} from './inscription/liste-inscriptionformule/liste-inscriptionformule.component';
+import {
+  InscriptionformuleDetailsComponent
+} from './inscription/inscriptionformule-details/inscriptionformule-details.component';
 
 
 @NgModule({
@@ -40,6 +49,9 @@ import {MoniteursComponent} from './moniteur/liste-moniteurs/moniteurs.component
     AjouterMoniteurComponent,
     MoniteurDetailsComponent,
     MoniteursComponent,
+    AjouterInscriptionformuleComponent,
+    ListeInscriptionformuleComponent,
+    InscriptionformuleDetailsComponent,
   ]
 })
 export class ComponentsModule { }

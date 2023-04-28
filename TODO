@@ -1,0 +1,19 @@
+- Clarifier la présentation avec les bouttons sur le menu
+- BUG VALIDATOR ELEVETS FORMBUILD
+-  "
+    DELETE http://localhost:8080/api/eleves/93d5b36f-11bc-41a5-a2bb-e35ee8b69df3 500
+    HttpErrorResponse {headers: HttpHeaders, status: 500, statusText: 'OK', url: 'http://localhost:8080/api/eleves/93d5b36f-11bc-41a5-a2bb-e35ee8b69df3', ok: false, …}
+    " Quand je supprime un element front de la liste des eleves par exemple il me renvoi cet erreur.
+    je pense que c est que comme sur le moment il a encore les données du dernier get ça genere une erreur. Mais en tout
+    cas tout fonctionne.
+
+    - il faudra refresh après une suppression à cause du code dans handler je pense. Car il ne
+    semble pas rappeler la requete automatiquement
+
+    Controler les formulaire avec énumération pour qualification moniteur (limite mettre une liste déroulante)
+
+
+- 28/04/2023 :
+- Ajouter inscription formule TODO
+- Constituer un groupe        TODO
+- Ajout de la prestation      TODO
